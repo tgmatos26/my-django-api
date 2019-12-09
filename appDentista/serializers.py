@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from appDentista.models import Dentista, Produtos
+from appDentista.models import Dentists, Drivers, Labs, Products, Orders, Transports
 from rest_framework import serializers
 
 
@@ -14,13 +14,35 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
 
-class DentistaSerializer(serializers.ModelSerializer):
+class DentistSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Dentista
-        fields = ['url', 'name', 'cpf', 'cro', 'email', 'password', 'passwordConfirmation',
+        model = Dentists
+        fields = ['url', 'name', 'cpf', 'cro', 'email', 'phone','password',
         'street', 'number', 'district', 'city', 'state']
 
-class ProdutosSerializer(serializers.ModelSerializer):
+class DriverSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Produtos
-        fields = ['url', 'name', 'lab', 'value']
+        model = Drivers
+        fields = ['url', 'name', 'cpf', 'cnh', 'crlv', 'email', 'phone','password',
+        'street', 'number', 'district', 'city', 'state']
+
+class LabSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Labs
+        fields = ['url', 'name', 'cnpj', 'insc_cfo', 'email', 'phone','password',
+        'street', 'number', 'district', 'city', 'state']
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Products
+        fields = ['url', 'id', 'name', 'lab', 'description', 'value', 'production']
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ['url', 'id', 'id_product', 'dentist']
+
+class TransportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transports
+        fields = ['url', 'id', 'id_order', 'cpf_driver','value', 'estimated_time']

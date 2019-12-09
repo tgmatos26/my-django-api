@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User, Group
-from appDentista.models import Dentista, Produtos
+from appDentista.models import Dentists, Drivers, Labs, Products, Orders, Transports
 from rest_framework import viewsets
-from appDentista.serializers import UserSerializer, GroupSerializer, DentistaSerializer, ProdutosSerializer
-
+from appDentista.serializers import UserSerializer, GroupSerializer
+from appDentista.serializers import DentistSerializer, DriverSerializer, LabSerializer
+from appDentista.serializers import ProductSerializer, OrderSerializer, TransportSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -19,16 +20,44 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
-class DentistaViewSet(viewsets.ModelViewSet):
+class DentistViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = Dentista.objects.all()
-    serializer_class = DentistaSerializer
+    queryset = Dentists.objects.all()
+    serializer_class = DentistSerializer
 
-class ProdutosViewSet(viewsets.ModelViewSet):
+class DriverViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = Produtos.objects.all()
-    serializer_class = ProdutosSerializer
+    queryset = Drivers.objects.all()
+    serializer_class = DriverSerializer
+
+class LabViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Labs.objects.all()
+    serializer_class = LabSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Products.objects.all()
+    serializer_class = ProductSerializer
+
+class OrderViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Orders.objects.all()
+    serializer_class = OrderSerializer
+    
+class TransportViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Transports.objects.all()
+    serializer_class = TransportSerializer
