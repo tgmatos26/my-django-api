@@ -21,8 +21,12 @@ from appDentista import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'dentistas', views.DentistaViewSet)
-router.register(r'produtos', views.ProdutosViewSet)
+router.register(r'dentists', views.DentistViewSet)
+router.register(r'drivers', views.DriverViewSet)
+router.register(r'labs', views.LabViewSet)
+router.register(r'products', views.ProductViewSet)
+router.register(r'orders', views.OrderViewSet)
+router.register(r'transports', views.TransportViewSet)
 
 
 urlpatterns = [

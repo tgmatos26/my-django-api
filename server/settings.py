@@ -25,7 +25,7 @@ SECRET_KEY = '+)xdqb*jcb4jyq9g=$mi=2y7&ibt&(m$41()$=_6)-pf*w3-#_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'tgmatos26.pythonanywhere']
 
 
 # Application definition
